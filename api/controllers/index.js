@@ -26,8 +26,16 @@ const postNotes = async (req, res) => {
 
 const getNotes = async (req, res) => {
   try {
-    const notes = await Note.find();
-    res.json(notes);
+    let notes = await Note.find();
+    notes = notes.map(note => {
+      return {
+        _id: note._id,
+        title: note.title,
+        content: note.content,
+        createdAt: note.createdAt.toLocaleString()
+      }
+    })
+    return res.json(notes);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
