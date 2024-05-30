@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  mongodb:
+    image: docker.io/mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"  # Porta padrão do MongoDB
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - mongodb_data:/data/db  # Monta o volume para persistência dos dados
+
+volumes:
+  mongodb_data:  # Define o volume para persistência dos dados
