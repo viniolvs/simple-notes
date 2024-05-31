@@ -31,9 +31,11 @@ export default {
 </script>
 
 <template>
-  <div @click="redirectToNoteView" class="note-card">
-    <h1>{{ props.note.title }}</h1>
-    <p>{{ props.note.createdAt }}</p>
+  <div class="note-card">
+    <div @click="redirectToNoteView">
+      <h1>{{ props.note.title }}</h1>
+      <p>{{ props.note.createdAt }}</p>
+    </div>
     <button class="btn btn-danger" @click="deleteNote">Delete</button>
   </div>
 </template>
