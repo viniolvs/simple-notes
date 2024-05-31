@@ -1,6 +1,7 @@
 :root {
   --vt-c-white: #FEFAE0;
   --vt-c-cream: #FAEDCD;
+  --vt-c-dark-cream: #D4A373;
   --vt-c-text: black;
 }
 
@@ -8,6 +9,7 @@
 :root {
   --color-background: var(--vt-c-white);
   --color-text: var(--vt-c-text);
+  --navbar-background: var(--vt-c-dark-cream);
 
   --section-gap: 160px;
 }
