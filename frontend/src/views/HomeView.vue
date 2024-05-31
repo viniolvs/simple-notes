@@ -22,7 +22,8 @@ export default {
     onMounted(fetchNotes);
 
     return {
-      notes
+      notes,
+      fetchNotes
     };
   }
 }
@@ -31,7 +32,7 @@ export default {
 <template>
   <div>
     <div v-if="notes.length">
-      <NoteDisplay v-for="note in notes" :key="note.id" :note="note" />
+      <NoteDisplay v-for="note in notes" :key="note.id" :note="note" :refreshNotes="fetchNotes" />
     </div>
     <div v-else>
       <p>No notes available</p>
