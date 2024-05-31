@@ -42,10 +42,32 @@ const getNotes = async (req, res) => {
   }
 };
 
+const getNoteById = async (req, res) => {
+  try {
+    const note = await Note.findById(req.params.id);
+    res.json(note);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+const deleteNotes = async (req, res) => {
+  try {
+    const deletedNote = await Note.findByIdAndDelete(req.params.id);
+    res.json(deletedNote);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 
 
 module.exports = {
   getHome,
   postNotes,
-  getNotes
+  getNotes,
+  getNoteById,
+  deleteNotes
 }
