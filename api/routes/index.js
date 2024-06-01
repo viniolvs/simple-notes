@@ -7,5 +7,6 @@ router.post('/notes', controllers.postNotes);
 router.get('/notes', controllers.getNotes);
 router.delete('/notes/:id', controllers.deleteNotes);
 router.get('/notes/:id', controllers.getNoteById);
+router.put('/notes/:id', controllers.putNotes);
 
 module.exports = router;

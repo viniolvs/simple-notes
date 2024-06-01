@@ -52,6 +52,19 @@ const getNoteById = async (req, res) => {
   }
 };
 
+const putNotes = async (req, res) => {
+  try {
+    const updatedNote = await Note.findByIdAndUpdate(
+      req.params.id, req.body, { new: true }
+    );
+    res.json(updatedNote);
+    console.log(updatedNote);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 const deleteNotes = async (req, res) => {
   try {
     const deletedNote = await Note.findByIdAndDelete(req.params.id);
@@ -69,5 +82,6 @@ module.exports = {
   postNotes,
   getNotes,
   getNoteById,
+  putNotes,
   deleteNotes
 }
