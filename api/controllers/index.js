@@ -58,7 +58,6 @@ const putNotes = async (req, res) => {
       req.params.id, req.body, { new: true }
     );
     res.json(updatedNote);
-    console.log(updatedNote);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
